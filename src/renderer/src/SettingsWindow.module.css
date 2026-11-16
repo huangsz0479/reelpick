@@ -1,0 +1,83 @@
+/* 标题栏高度和主进程里的 SETTINGS_TITLEBAR 一致 */
+.window {
+  display: grid;
+  grid-template-rows: 40px minmax(0, 1fr);
+  height: 100%;
+}
+
+.titlebar {
+  display: grid;
+  place-items: center;
+  border-bottom: 1px solid var(--line);
+}
+.titlebar h1 {
+  font-size: 13px;
+  font-weight: 600;
+}
+:global([data-platform='win32']) .titlebar {
+  justify-items: start;
+  padding-left: 16px;
+}
+
+.body {
+  padding: 0 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+}
+.row + .row {
+  border-top: 1px solid var(--line);
+}
+.row h2 {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+/* 和右边 28px 高的控件垂直居中 */
+.row .control {
+  padding-top: 4px;
+}
+
+.dir {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.path {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  line-height: 26px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* 放不下时省略开头，保留末尾的文件夹名 */
+  direction: rtl;
+  text-align: left;
+  user-select: text;
+}
+.path bdi {
+  direction: ltr;
+}
+
+.hint {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+.version {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}

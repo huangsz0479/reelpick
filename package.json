@@ -1,0 +1,64 @@
+{
+  "name": "video-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "本地运行的无水印视频/图片下载工具",
+  "main": "./out/main/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.web.json",
+    "test": "vitest run",
+    "test:live": "LIVE=1 vitest run",
+    "icons": "electron scripts/make-icons.mjs -ApplePersistenceIgnoreState YES",
+    "dist:mac": "pnpm build && electron-builder --mac",
+    "dist:win": "pnpm build && electron-builder --win"
+  },
+  "dependencies": {
+    "ffmpeg-static": "5.3.0"
+  },
+  "packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c",
+  "devDependencies": {
+    "@base-ui/react": "1.9.0",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.2.1",
+    "electron": "45.2.3",
+    "electron-builder": "26.18.1",
+    "electron-vite": "6.0.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.6",
+    "vitest": "5.1.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "build": {
+    "appId": "app.shiying.desktop",
+    "productName": "拾影",
+    "artifactName": "Reelpick-${version}-${os}-${arch}.${ext}",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/ffmpeg-static/**"
+    ],
+    "mac": {
+      "target": "dmg",
+      "identity": "-",
+      "hardenedRuntime": false
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

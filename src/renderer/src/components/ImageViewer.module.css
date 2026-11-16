@@ -1,0 +1,101 @@
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: grid;
+  grid-template-rows: var(--titlebar) minmax(0, 1fr);
+  background: var(--viewer);
+  color: var(--text);
+  color-scheme: dark;
+  outline: none;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px 0 84px;
+  border-bottom: 1px solid var(--line);
+}
+:global([data-platform='win32']) .bar {
+  padding: 0 150px 0 20px;
+}
+
+.title {
+  flex: 1;
+  font: 500 13px/20px var(--font-mono);
+}
+.title span {
+  margin-left: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.barButton,
+.iconButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--bg-selected);
+  color: inherit;
+}
+.iconButton {
+  padding: 0 6px;
+  background: none;
+}
+.barButton:hover,
+.iconButton:hover {
+  background: var(--bg-active);
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+.stage img {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+.stage[data-actual] {
+  display: grid;
+  overflow: auto;
+  cursor: grab;
+}
+.stage[data-actual]:active {
+  cursor: grabbing;
+}
+.stage[data-actual] img {
+  max-width: none;
+  max-height: none;
+}
+
+.nav {
+  position: absolute;
+  top: calc(50% + var(--titlebar) / 2);
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 0.55);
+  color: var(--text);
+  transform: translateY(-50%);
+}
+.nav:hover {
+  background: rgb(0 0 0 / 0.8);
+}
+.prev {
+  left: 16px;
+}
+.next {
+  right: 16px;
+}

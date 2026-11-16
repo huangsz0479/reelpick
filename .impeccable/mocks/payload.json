@@ -1,0 +1,10 @@
+{
+  "title": "选择界面的视觉方向",
+  "question": "三张草图展示的是同一个界面：粘贴链接、解析结果、下载列表。选一个你喜欢的，也可以在说明里写想调整的地方。",
+  "options": [
+    { "id": "ticket", "label": "票根", "thesis": "暖白纸面、墨黑文字，印泥红只用在「下载」和失败状态。解析结果是一张票，齿孔线右侧是下载区；完成和失败用盖章表示。", "palette": ["#f3eee4", "#1d1b18", "#b3261e", "#2d5a3d"], "materials": ["纸面", "齿孔线", "印章"], "viewport": "单栏：输入框、票面结果、台账式下载记录。", "risk": "略带复古感，直角和宋体标题不是每个人都喜欢。", "html": ".impeccable/mocks/decision/ticket.html", "htmlFrame": "980x700" },
+    { "id": "native", "label": "原生系统风", "thesis": "尽量像 macOS / Windows 自带的软件：中性灰、系统蓝、标准控件、左侧分类栏。", "palette": ["#ffffff", "#ececec", "#1d1d1f", "#0a64d8"], "materials": ["侧栏", "工具栏", "分段控件"], "viewport": "左侧按状态和平台筛选，右侧工具栏输入、结果、列表。", "risk": "最稳妥，但没有自己的特点。", "html": ".impeccable/mocks/decision/native.html", "htmlFrame": "980x700" },
+    { "id": "warm", "label": "暖色消费级应用", "thesis": "暖色底、白色大圆角卡片、大按钮、口语化文案，橙色只用在能点的主要操作上。", "palette": ["#f7efe4", "#ffffff", "#2a2118", "#e8590c"], "materials": ["圆角卡片", "胶囊按钮"], "viewport": "居中窄栏，卡片依次堆叠。", "risk": "亲切，但信息密度低，更像手机 App 而不是桌面工具。", "html": ".impeccable/mocks/decision/warm.html", "htmlFrame": "980x700" }
+  ],
+  "steer": true
+}

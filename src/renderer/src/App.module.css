@@ -1,0 +1,91 @@
+.app {
+  display: grid;
+  grid-template-columns: 208px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: 100%;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: var(--titlebar) minmax(0, 1fr);
+  min-width: 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+:global([data-platform='win32']) .toolbar {
+  padding-right: 150px;
+}
+
+.heading {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+  cursor: text;
+}
+.field svg {
+  flex: none;
+  color: var(--text-muted);
+}
+.field input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  outline: none;
+  user-select: text;
+}
+.field input::placeholder {
+  color: var(--text-muted);
+}
+.field:focus-within {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.scroll {
+  overflow-y: auto;
+}
+
+.error {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--danger);
+  user-select: text;
+  text-wrap: pretty;
+}
+.error p {
+  flex: 1;
+}
+.error :global(.btn) {
+  color: var(--text);
+}
